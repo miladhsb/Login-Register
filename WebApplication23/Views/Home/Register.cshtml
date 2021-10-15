@@ -1,0 +1,54 @@
+﻿@model RegisterUser
+
+
+
+<div class="text-center mr-auto ml-auto  " style="width:300px">
+    <div class=" d-flex justify-content-cente">
+        <form id="FormReg" asp-action="Register" asp-controller="home" method="post" class="form-signin w-100">
+            <img class="mb-4" src="~/favicon.png" alt="" width="72" height="72">
+            <h1 class="h3 mb-3 font-weight-normal">ثبت نام کنید</h1>
+            <span asp-validation-for="UserName" class="text-danger"></span>
+
+            <input asp-for="UserName" class="form-control" placeholder="نام کاربری">
+            <span asp-validation-for="Password"class="text-danger"></span>
+            <input asp-for="Password" class="form-control mt-1" placeholder="کلمه عبور">
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            <input asp-for="ConfirmPassword" class="form-control mt-1" placeholder="تکرار کلمه عبور">
+
+            <button class="btn btn-lg btn-primary btn-block mt-2" type="submit">ثبت نام</button>
+            <p class="mt-5 mb-3 text-muted">© Milad 2021</p>
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+
+    $(document).ready(function () {
+
+
+        $("#FormReg").submit(function (e) {
+
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+
+            var form = $(this);
+            var url = form.attr('action');
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: form.serialize(), // serializes the form's elements.
+                success: function (data) {
+                    $("#result").html(data); // show response from the php script.
+                }
+            });
+
+
+        });
+    });
+
+
+
+
+</script>
