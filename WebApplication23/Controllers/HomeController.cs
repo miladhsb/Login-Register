@@ -26,7 +26,15 @@ namespace WebApplication23.Controllers
         [HttpPost]
         public IActionResult Login(User user)
         {
-            return PartialView(user);
+            if (ModelState.IsValid)
+            {
+                return Content("ورود با موفقیت انجام شد");
+            }
+            else
+            {
+                return PartialView(user);
+            }
+           
         }
 
         [HttpGet]
@@ -38,7 +46,15 @@ namespace WebApplication23.Controllers
         [HttpPost]
         public IActionResult Register(RegisterUser registerUser)
         {
-            return PartialView(registerUser);
+            if (ModelState.IsValid)
+            {
+                return Content("ثبت نام با موفقیت انجام شد");
+            }
+            else
+            {
+                return PartialView(registerUser);
+            }
+            
         }
 
         [HttpGet]
