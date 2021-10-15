@@ -2,14 +2,14 @@
 
 <div class="text-center">
     <h4 class="text-danger">فرم ورود و ثبت نام به صورت ایجکس</h4>
-   
+
 </div>
 
 
 @section Scripts{
 
 
-
+    @*modal*@
     <div class="modal" tabindex="-1" role="dialog" id="myModal">
 
         <div class="modal-dialog" role="document">
@@ -22,8 +22,8 @@
                 </div>
                 <div class="d-flex justify-content-center mt-1">
 
-                    <button class="btn btn-info mr-1"  onclick="ShowLoginModal()">ورود</button>
-                    <button class="btn btn-success"  onclick="ShowRegisterModal()">ثبت نام</button>
+                    <button class="btn btn-info mr-1" onclick="ShowLoginModal()">ورود</button>
+                    <button class="btn btn-success" onclick="ShowRegisterModal()">ثبت نام</button>
                 </div>
                 <div class="modal-body" id="result">
 
@@ -32,10 +32,11 @@
             </div>
         </div>
     </div>
+    @*modal*@
 
     <script>
 
-
+        //load Ajax
 
         function ShowLoginModal() {
 
@@ -44,6 +45,8 @@
 
             }
 
+
+         //load Ajax
           function ShowRegisterModal() {
 
             $('#myModal').modal('show')
